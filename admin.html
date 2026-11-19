@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Panel del administrador - LumiStock</title>
+    <link rel="stylesheet" href="panel.css">
+
+    
+</head>
+<body>
+
+    <aside class="menu">
+        <img src="logo.png.jpeg" alt="Logo de LumiStock" width="100">
+        <nav>
+            <a href="admin.html">Dashboard</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="ubicaciones.html">Ubicaciones</a>
+            <a href="configuracion.html">Configuración</a>
+        </nav>
+        <a href="login.html" class="salir">Cerrar sesión</a>
+    </aside>
+
+    <div class="contenido">
+
+        <header class="barra">
+            <button class="boton-menu">☰</button>
+            <span class="usuario">Administrador</span>
+        </header>
+
+        <main>
+            <h1>Bienvenido, <span class="verde">Administrador</span></h1>
+            <p>Gestiona tu inventario de forma inteligente y eficiente.</p>
+
+            <section class="tarjetas">
+                <article class="tarjeta">
+                    <p>Total de productos</p>
+                    <strong>248</strong>
+                </article>
+                <article class="tarjeta">
+                    <p>En stock</p>
+                    <strong>220</strong>
+                </article>
+                <article class="tarjeta">
+                    <p>Productos críticos</p>
+                    <strong>28</strong>
+                </article>
+                <article class="tarjeta">
+                    <p>Ubicaciones activas</p>
+                    <strong>9</strong>
+                </article>
+                <article class="tarjeta">
+                    <p>Estado de los productos</p>
+                    <span class="etiqueta buen-estado">Buen estado · 210</span>
+                    <span class="etiqueta maltratado">Maltratado · 14</span>
+                    <span class="etiqueta roto">Roto · 9</span>
+                    <span class="etiqueta caducado">Caducado · 5</span>
+                    <span class="etiqueta revision">En revisión · 10</span>
+                </article>
+            </section>
+
+            <section class="ubicaciones">
+                <h2>Ubicaciones del almacén</h2>
+                <div class="cuadricula">
+                    <div class="ubicacion">A1</div>
+                    <div class="ubicacion">A2</div>
+                    <div class="ubicacion">A3</div>
+                    <div class="ubicacion">B1</div>
+                    <div class="ubicacion activa">B2</div>
+                    <div class="ubicacion">B3</div>
+                    <div class="ubicacion">C1</div>
+                    <div class="ubicacion">C2</div>
+                    <div class="ubicacion">C3</div>
+                </div>
+            </section>
+
+            <section class="productos">
+                <div class="encabezado-tabla">
+                    <h2>Lista de productos</h2>
+                    <input type="search" placeholder="Buscar producto...">
+                    <button>Buscar</button>
+                    <button class="agregar">Agregar producto</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Producto</th>
+                            <th>Existencias</th>
+                            <th>Ubicación</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>P001</td>
+                            <td>Foco LED 9W</td>
+                            <td>32</td>
+                            <td>A1</td>
+                            <td><span class="etiqueta buen-estado">Buen estado</span></td>
+                            <td>
+                                <button class="ver">Ver</button>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>P002</td>
+                            <td>Cable eléctrico</td>
+                            <td>45</td>
+                            <td>A2</td>
+                            <td><span class="etiqueta maltratado">Maltratado</span></td>
+                            <td>
+                                <button class="ver">Ver</button>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>P003</td>
+                            <td>Desarmador</td>
+                            <td>18</td>
+                            <td>B1</td>
+                            <td><span class="etiqueta revision">En revisión</span></td>
+                            <td>
+                                <button class="ver">Ver</button>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

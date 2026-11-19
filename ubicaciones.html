@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ubicaciones - LumiStock</title>
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+    <aside class="menu">
+        <img src="logo.png.jpeg" alt="Logo de LumiStock" width="100">
+        <nav>
+            <a href="admin.html">Dashboard</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="ubicaciones.html">Ubicaciones</a>
+            <a href="configuracion.html">Configuración</a>
+        </nav>
+        <a href="login.html" class="salir">Cerrar sesión</a>
+    </aside>
+
+    <div class="contenido">
+
+        <header class="barra">
+            <button class="boton-menu">☰</button>
+            <span class="usuario">Administrador</span>
+        </header>
+
+        <main>
+            <h1>Ubicaciones</h1>
+            <p>Consulta dónde está cada zona del almacén y qué LED la ilumina.</p>
+
+            <section class="productos">
+                <div class="encabezado-tabla">
+                    <h2>Ubicaciones del almacén</h2>
+                    <input type="search" placeholder="Buscar ubicación...">
+                    <button>Buscar</button>
+                    <button class="agregar">Agregar ubicación</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pasillo</th>
+                            <th>Estante</th>
+                            <th>Nivel</th>
+                            <th>Posición</th>
+                            <th>Descripción</th>
+                            <th>LED</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>E1</td>
+                            <td>1</td>
+                            <td>P1</td>
+                            <td>Zona de iluminación</td>
+                            <td><span class="etiqueta buen-estado">IOT-A001</span></td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>E1</td>
+                            <td>2</td>
+                            <td>P2</td>
+                            <td>Zona de material eléctrico</td>
+                            <td><span class="etiqueta revision">Sin dispositivo</span></td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>E2</td>
+                            <td>1</td>
+                            <td>P1</td>
+                            <td>Zona de herramientas</td>
+                            <td><span class="etiqueta buen-estado">IOT-B001</span></td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>E2</td>
+                            <td>2</td>
+                            <td>P2</td>
+                            <td>Zona de accesorios</td>
+                            <td><span class="etiqueta revision">Sin dispositivo</span></td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Configuración - LumiStock</title>
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+    <aside class="menu">
+        <img src="logo.png.jpeg" alt="Logo de LumiStock" width="100">
+        <nav>
+            <a href="admin.html">Dashboard</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="ubicaciones.html">Ubicaciones</a>
+            <a href="configuracion.html">Configuración</a>
+        </nav>
+        <a href="login.html" class="salir">Cerrar sesión</a>
+    </aside>
+
+    <div class="contenido">
+
+        <header class="barra">
+            <button class="boton-menu">☰</button>
+            <span class="usuario">Administrador</span>
+        </header>
+
+        <main>
+            <h1>Configuración</h1>
+            <p>Administra los usuarios del sistema y los dispositivos ESP32.</p>
+
+            <section class="productos">
+                <div class="encabezado-tabla">
+                    <h2>Usuarios</h2>
+                    <button class="agregar">Agregar usuario</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Administrador LumiStock</td>
+                            <td><span class="etiqueta administrador">Administrador</span></td>
+                            <td><span class="etiqueta buen-estado">Activo</span></td>
+                            <td>04/11/2026</td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Desactivar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Empleado LumiStock</td>
+                            <td><span class="etiqueta revision">Empleado</span></td>
+                            <td><span class="etiqueta buen-estado">Activo</span></td>
+                            <td>04/11/2026</td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="eliminar">Desactivar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="productos">
+                <div class="encabezado-tabla">
+                    <h2>Dispositivos ESP32</h2>
+                    <button class="agregar">Agregar dispositivo</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dispositivo</th>
+                            <th>Identificador</th>
+                            <th>Ubicación</th>
+                            <th>Dirección IP</th>
+                            <th>Estado</th>
+                            <th>Último contacto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LED Pasillo A</td>
+                            <td>IOT-A001</td>
+                            <td>A-E1-N1-P1</td>
+                            <td>192.168.1.101</td>
+                            <td><span class="etiqueta buen-estado">Activo</span></td>
+                            <td>04/11 23:40</td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="ver">Probar LED</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LED Pasillo B</td>
+                            <td>IOT-B001</td>
+                            <td>B-E2-N1-P1</td>
+                            <td>192.168.1.102</td>
+                            <td><span class="etiqueta buen-estado">Activo</span></td>
+                            <td>04/11 23:40</td>
+                            <td>
+                                <button class="editar">Editar</button>
+                                <button class="ver">Probar LED</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

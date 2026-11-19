@@ -1,0 +1,486 @@
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #1d2b22;
+            background-color: #f3f6f9;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .menu {
+            width: 220px;
+            background-color: #0b2a4a;
+            padding: 16px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu img {
+            display: block;
+            width: 120px;
+            margin: 0 auto 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 6px;
+        }
+
+        .menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 6px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #168a45;
+        }
+
+        .menu .salir {
+            margin-top: auto;
+        }
+
+        .contenido {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .barra {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 24px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #dfe6ea;
+        }
+
+        .boton-menu {
+            font-size: 20px;
+            background: none;
+            border: none;
+            color: #14365a;
+            cursor: pointer;
+        }
+
+        .usuario {
+            font-weight: bold;
+            color: #14365a;
+        }
+
+        main {
+            padding: 24px;
+        }
+
+        main > h1 {
+            margin: 0 0 4px 0;
+            font-size: 30px;
+            color: #14365a;
+        }
+
+        .verde {
+            color: #168a45;
+        }
+
+        main > p {
+            margin: 0 0 20px 0;
+            color: #5d6b73;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .tarjeta {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 14px 16px;
+            border-bottom: 3px solid #14365a;
+            box-shadow: 0 2px 8px rgba(20, 54, 90, 0.08);
+        }
+
+        .tarjeta:nth-child(even) {
+            border-bottom-color: #1fb35a;
+        }
+
+        .tarjeta p {
+            margin: 0 0 6px 0;
+            font-size: 13px;
+            color: #5d6b73;
+        }
+
+        .tarjeta strong {
+            font-size: 28px;
+            color: #14365a;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            padding: 4px 10px;
+            margin: 0 6px 6px 0;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .buen-estado {
+            background-color: #dff3e6;
+            color: #14783d;
+        }
+
+        .maltratado {
+            background-color: #ffe6d9;
+            color: #c4520f;
+        }
+
+        .roto,
+        .caducado {
+            background-color: #fddcdc;
+            color: #c93a3a;
+        }
+
+        .revision {
+            background-color: #eceeef;
+            color: #1d2b22;
+        }
+
+        .ubicaciones,
+        .productos {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            box-shadow: 0 2px 8px rgba(20, 54, 90, 0.08);
+        }
+
+        .ubicaciones h2,
+        .productos h2 {
+            margin: 0 0 12px 0;
+            font-size: 17px;
+            color: #14365a;
+        }
+
+        .cuadricula {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 8px;
+        }
+
+        .ubicacion {
+            border: 1px solid #dfe6ea;
+            border-radius: 6px;
+            padding: 12px;
+            font-weight: bold;
+            color: #14365a;
+            cursor: pointer;
+        }
+
+        .ubicacion::before {
+            content: "●";
+            color: #1fb35a;
+            margin-right: 6px;
+        }
+
+        .ubicacion:hover {
+            border-color: #1fb35a;
+            background-color: #e8f5ed;
+        }
+
+        .ubicacion.activa {
+            border: 2px solid #1fb35a;
+            background-color: #e8f5ed;
+        }
+
+        .encabezado-tabla {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .encabezado-tabla h2 {
+            margin: 0 auto 0 0;
+        }
+
+        .encabezado-tabla input {
+            padding: 8px 12px;
+            min-width: 180px;
+            font-size: 14px;
+            border: 1px solid #c9d2d7;
+            border-radius: 6px;
+        }
+
+        .encabezado-tabla input:focus {
+            outline: none;
+            border-color: #1fb35a;
+        }
+
+        .encabezado-tabla button {
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #14365a;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .encabezado-tabla button.agregar {
+            background-color: #168a45;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            text-align: left;
+            padding: 10px;
+            background-color: #f3f6f9;
+            color: #14365a;
+        }
+
+        td {
+            padding: 10px;
+            border-top: 1px solid #eef2f4;
+        }
+
+        td button {
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .ver {
+            background-color: #14365a;
+        }
+
+        .editar {
+            background-color: #1c5fb0;
+        }
+
+        .eliminar {
+            background-color: #c93a3a;
+        }
+
+        td .etiqueta {
+            margin: 0;
+        }
+
+        .administrador{
+            background-color: #e3edf8;
+            color: #14365a;
+        }
+
+        .encabezado-tabla a.agregar {
+           padding: 8px 14px;
+           font-size: 13px;
+           font-weight: bold;
+           color: #ffffff;
+           background-color: #168a45;
+           border-radius: 6px;
+           text-decoration: none;
+        }
+
+        .formulario {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+
+        }
+
+        .campo{
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .campo label{
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #14365a;
+
+        }
+
+        .campo input,
+        .campo select,
+        .campo textarea {
+            padding: 10px 12px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            border: 1.5px solid #c9d2d7;
+            border-radius: 8px;
+        
+        }
+
+        .campo input:focus,
+        .campo select:focus,
+        .campo textarea:focus {
+            outline: none;
+            border-color: #1fb35a;
+        
+        }
+
+        .campo-ancho {
+            grid-column: 1 / -1;
+
+        }
+
+        .acciones-formulario {
+            grid-column: 1 /-1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+        }
+
+        .acciones-formulario button,
+        .acciones-formulario a {
+           padding: 10px 20px;
+           font-size: 14px;
+           font-weight: bold;
+           border: none;
+           border-radius: 8px;
+           cursor: pointer;
+           text-decoration: none;
+        
+        }
+        .acciones-formulario button{
+            color: #ffffff;
+            background-color: #168a45;
+
+        }
+
+        .acciones-formulario .cancelar{
+            color: #168a45;
+            background-color: #e3edf8;
+            
+        }
+
+        .buscador{
+            display: flex;
+            gap: 8px;
+
+        }
+
+        .buscador input {
+            flex: 1;
+            padding: 12px;
+            font-size: 17px;
+            border: 2px solid #14365a;
+            border-radius: 6px;
+
+        }
+
+        .buscador input:focus {
+            outline: none;
+            border-radius: 6px;
+
+        }
+
+        .buscador button{
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #06301a;
+            background-color: #1fb35a;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+
+        }
+
+        .buscador button:hover {
+            color: #ffffff;
+            background-color: #168a45;
+
+        }
+
+        .resultado {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+            padding: 16px;
+            background-color: #e8f5ed;
+            border-left: 6px solid #1fb35a;
+            border-radius: 6px;
+
+        }
+
+        .resultado img {
+            width: 90px;
+            height: 110px;
+            object-fit: contain;
+            background-color: #ffffff;
+            border: 1px solid #c5d9cd;
+            border-radius: 6px;
+
+        }
+
+        .resultado h3 {
+            margin: 0;
+            color: #14365a;
+            font-size: 19px;
+
+        }
+
+        .resultado .existencia {
+            margin: 2px 0 10px 0;
+            font-size: 14px;
+            color: #2f5d44;
+        }
+
+        .resultado .titulo-ubicacion {
+            margin: 0;
+            font-weight: bold;
+            color: #14365a;
+
+        }
+
+        .resultado ul {
+            list-style: none;
+            margin: 4px 0 0 0;
+            padding: 0;
+            line-height: 1.6;
+
+        }
+
+        .resultado[hidden] {
+            display: none;
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Agregar producto - LumiStock</title>
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+    <aside class="menu">
+        <img src="logo.png.jpeg" alt="Logo de LumiStock" width="100">
+        <nav>
+            <a href="admin.html">Dashboard</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="ubicaciones.html">Ubicaciones</a>
+            <a href="configuracion.html">Configuración</a>
+        </nav>
+        <a href="login.html" class="salir">Cerrar sesión</a>
+    </aside>
+
+    <div class="contenido">
+
+        <header class="barra">
+            <button class="boton-menu">☰</button>
+            <span class="usuario">Administrador</span>
+        </header>
+
+        <main>
+            <h1>Agregar producto</h1>
+            <p>Llena los datos del producto nuevo y dónde se va a guardar.</p>
+
+            <section class="productos">
+                <form class="formulario" action="inventario.html">
+
+                    <div class="campo">
+                        <label for="codigo">Código</label>
+                        <input type="text" id="codigo" name="codigo_producto" maxlength="10" placeholder="Ejemplo: LUM002" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" maxlength="50" placeholder="Nombre del producto" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria" name="id_categoria" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="1">Iluminación</option>
+                            <option value="2">Material eléctrico</option>
+                            <option value="3">Herramientas</option>
+                            <option value="4">Accesorios</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="unidad">Unidad de medida</label>
+                        <input type="text" id="unidad" name="unidad_medida" placeholder="Pieza, metro, caja..." required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado_producto" required>
+                            <option value="Buen estado">Buen estado</option>
+                            <option value="Maltratado">Maltratado</option>
+                            <option value="Roto">Roto</option>
+                            <option value="Caducado">Caducado</option>
+                            <option value="En revisión">En revisión</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="minimo">Stock mínimo</label>
+                        <input type="number" id="minimo" name="stock_minimo" min="0" placeholder="0" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cantidad">Cantidad inicial</label>
+                        <input type="number" id="cantidad" name="cantidad" min="0" placeholder="0" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="ubicacion">Ubicación</label>
+                        <select id="ubicacion" name="id_ubicacion" required>
+                            <option value="">Selecciona una ubicación</option>
+                            <option value="1">A-E1-N1-P1</option>
+                            <option value="2">A-E1-N2-P2</option>
+                            <option value="3">B-E2-N1-P1</option>
+                            <option value="4">B-E2-N2-P2</option>
+                        </select>
+                    </div>
+
+                    <div class="campo campo-ancho">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" name="descripcion" rows="3" placeholder="Descripción del producto"></textarea>
+                    </div>
+
+                    <div class="campo campo-ancho">
+                        <label for="imagen">Foto del producto</label>
+                        <input type="file" id="imagen" name="imagen_producto" accept="image/*">
+                    </div>
+
+                    <div class="acciones-formulario">
+                        <a href="inventario.html" class="cancelar">Cancelar</a>
+                        <button type="submit">Guardar producto</button>
+                    </div>
+
+                </form>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>

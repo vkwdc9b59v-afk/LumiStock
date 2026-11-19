@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Buscar producto - LumiStock</title>
+    <link rel="stylesheet" href="panel.css">
+</head>
+
+<body>
+
+    <aside class="menu">
+        <img src="logo.png.jpeg" alt="Logo de LumiStock" width="100">
+        <nav>
+            <a href="index.html">Buscar</a>
+            <a href="inventario.html">Inventario</a>
+            <a href="ubicaciones.html">Ubicaciones</a>
+        </nav>
+        <a href="login.html" class="salir">Cerrar sesión</a>
+    </aside>
+
+    <div class="contenido">
+
+        <header class="barra">
+            <button class="boton-menu">☰</button>
+            <span class="usuario">Empleado</span>
+        </header>
+
+        <main>
+    <h1>Buscar producto</h1>
+    <p>Escribe el nombre o el código y se encenderá el LED de su ubicación.</p>
+
+    <div class="buscador">
+        <input type="search" id="busqueda" placeholder="Escribe el nombre o el código del producto">
+        <button id="boton-buscar">Buscar</button>
+    </div>
+
+    <p id="mensaje"></p>
+
+    <section class="resultado" id="resultado" hidden>
+        <img id="foto" src="" alt="Foto del producto">
+        <div class="info">
+            <h3 id="nombre"></h3>
+            <p class="existencia" id="existencia"></p>
+            <p class="titulo-ubicacion">Ubicación</p>
+            <ul>
+                <li id="pasillo"></li>
+                <li id="estante"></li>
+                <li id="nivel"></li>
+                <li id="posicion"></li>
+            </ul>
+        </div>
+    </section>
+</main>
+    </div>
+
+    <script>
+        console.log("JS cargando");
+    // Productos de prueba (después vendrán de la base de datos)
+    const productos = [
+        { codigo: "LUM001", nombre: "Foco LED 9W",     existencias: 32, pasillo: "A", estante: "E1", nivel: 1, posicion: "P1", imagen: "cafe.jpg.webp" },
+        { codigo: "ELE001", nombre: "Cable eléctrico", existencias: 45, pasillo: "A", estante: "E1", nivel: 2, posicion: "P2", imagen: "cafe.jpg.webp" },
+        { codigo: "HER001", nombre: "Desarmador",      existencias: 18, pasillo: "B", estante: "E2", nivel: 1, posicion: "P1", imagen: "cafe.jpg.webp" },
+        { codigo: "ACC001", nombre: "Cinta aislante",  existencias: 8,  pasillo: "B", estante: "E2", nivel: 2, posicion: "P2", imagen: "cafe.jpg.webp" }
+    ];
+
+    // Los elementos de la página que vamos a usar
+    const cajaBusqueda = document.getElementById("busqueda");
+    const botonBuscar  = document.getElementById("boton-buscar");
+    const mensaje      = document.getElementById("mensaje");
+    const resultado    = document.getElementById("resultado");
+    const foto         = document.getElementById("foto");
+    const nombre       = document.getElementById("nombre");
+    const existencia   = document.getElementById("existencia");
+    const pasillo      = document.getElementById("pasillo");
+    const estante      = document.getElementById("estante");
+    const nivel        = document.getElementById("nivel");
+    const posicion     = document.getElementById("posicion");
+
+    async function encenderLed(producto) {
+        if (!producto.ip){
+            mensaje.textContent = "Esta ubicacion todavia no tiene un LED registrado.";
+            return;
+
+        }
+
+        mensaje.textContent = "Enciendo el LED...";
+
+        const ubicacion = producto.pasillo + "-" + producto.estante + "-N" + producto.nivel + "-" + producto.posicion;
+        const direccion = "http://" + producto.ip + "/led?pos=" + ubicacion;
+
+        const control = new AbortController();
+        const limite = setTimeout(function () { control.abort(); }, 3000);
+
+        try{
+            await fetch(direccion, { mode: "no-cors", signal: control.signal});
+            mensaje.textContent ="LED encendido por 30segundos.";
+        }catch (error) {
+            mensaje.textContent = "Nose pudo contactar al ESP32. Revisa que este encendido y en la misma red.";
+
+
+        }
+
+        clearTimeout(limite);
+        
+        
+    }
+
+    // La función que busca y muestra el producto
+    function buscar() {
+        const texto = cajaBusqueda.value.trim().toLowerCase();
+
+        if (texto === "") {
+            mensaje.textContent = "Escribe el nombre o el código de un producto.";
+            resultado.hidden = true;
+            return;
+        }
+
+        const encontrado = productos.find(function (p) {
+            return p.nombre.toLowerCase().includes(texto) ||
+                   p.codigo.toLowerCase().includes(texto);
+        });
+
+        if (!encontrado) {
+            mensaje.textContent = "No se encontró ningún producto con ese nombre.";
+            resultado.hidden = true;
+            return;
+        }
+
+        mensaje.textContent = "";
+        foto.src = encontrado.imagen;
+        nombre.textContent = encontrado.nombre;
+        existencia.textContent = encontrado.existencias + " en existencia";
+        pasillo.textContent = "Pasillo " + encontrado.pasillo;
+        estante.textContent = "Estante " + encontrado.estante;
+        nivel.textContent = "Nivel " + encontrado.nivel;
+        posicion.textContent = "Posición " + encontrado.posicion;
+        resultado.hidden = false;
+
+        encenderLed(encontrado);
+    }
+
+    // Cuándo se ejecuta: al hacer clic en Buscar o al presionar Enter
+    botonBuscar.addEventListener("click", buscar);
+    cajaBusqueda.addEventListener("keydown", function (evento) {
+        if (evento.key === "Enter") {
+            buscar();
+        }
+    });
+</script>
+
+</body>
+</html>
